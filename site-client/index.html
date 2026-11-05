@@ -1,24 +1,467 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu primeiro site</title>
+    <title>Herick Felipe Brandão | Cibersistemas & Tecnologia</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        weg: {
+                            blue: '#00579D',
+                            light: '#0073cb',
+                            cyan: '#00f0ff'
+                        },
+                        cyber: {
+                            dark: '#0a0d14',
+                            card: '#121824',
+                            border: '#1f293d',
+                            green: '#00ff88',
+                            purple: '#8a2be2'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fontes Inter & Orbitron para visual tech/gamer -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0d14;
+            color: #e2e8f0;
+        }
+        .font-tech {
+            font-family: 'Orbitron', sans-serif;
+        }
+        /* Efeito de brilho Cyberpunk/Gamer */
+        .glow-cyan {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+        }
+        .glow-cyan-hover:hover {
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
+        }
+        .glow-green {
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.25);
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+        /* Background animado de grid tech */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(31, 41, 61, 0.3) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(31, 41, 61, 0.3) 1px, transparent 1px);
+        }
+    </style>
 </head>
-<body>
-    <h1>
-        Meu primeiro código em HTML
-    </h1>
-    <hr>
-    <p>
-        lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue 
-        ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. 
-        Praesent et diam eget libero egestas mattis sit amet vitae augue. 
-        Nam tincidunt congue enim, ut porta lorem lacinia consectetur. 
-        Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, 
-        consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, 
-        adipiscing id dolor.
-    </p>
+<body class="bg-cyber-dark text-gray-100 min-h-screen selection:bg-weg-cyan selection:text-black bg-grid">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-cyber-dark/80 backdrop-blur-md border-b border-cyber-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-weg-blue to-weg-cyan flex items-center justify-center font-tech font-bold text-black text-xl transition-transform group-hover:scale-105 glow-cyan">
+                        HB
+                    </div>
+                    <span class="font-tech text-lg font-bold tracking-wider text-white group-hover:text-weg-cyan transition-colors">
+                        HERICK<span class="text-weg-cyan">.BRANDÃO</span>
+                    </span>
+                </a>
+
+                <!-- Navegação Desktop -->
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#sobre" class="text-gray-300 hover:text-weg-cyan transition-colors py-2 flex items-center gap-2">
+                        <i data-lucide="user" class="w-4 h-4"></i> Sobre
+                    </a>
+                    <a href="#formacao" class="text-gray-300 hover:text-weg-cyan transition-colors py-2 flex items-center gap-2">
+                        <i data-lucide="cpu" class="w-4 h-4"></i> CentroWEG
+                    </a>
+                    <a href="#interesses" class="text-gray-300 hover:text-weg-cyan transition-colors py-2 flex items-center gap-2">
+                        <i data-lucide="gamepad-2" class="w-4 h-4"></i> Interesses
+                    </a>
+                    <a href="#objetivos" class="text-gray-300 hover:text-weg-cyan transition-colors py-2 flex items-center gap-2">
+                        <i data-lucide="rocket" class="w-4 h-4"></i> Futuro
+                    </a>
+                </nav>
+
+                <!-- Status Badge -->
+                <div class="hidden sm:flex items-center gap-2 bg-cyber-card px-3 py-1.5 rounded-full border border-cyber-border text-xs font-mono text-cyber-green">
+                    <span class="w-2 h-2 rounded-full bg-cyber-green animate-pulse"></span>
+                    CentroWEG &bull; Cibersistemas
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Principal / Hero -->
+    <section class="pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
+        <!-- Luzes Neon de fundo -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-weg-cyan/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-1/3 left-1/4 w-[300px] h-[200px] bg-weg-blue/20 blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Coluna de Texto Principal -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-weg-blue/10 border border-weg-blue/40 text-weg-cyan text-xs font-mono tracking-wide uppercase">
+                        <i data-lucide="terminal" class="w-3.5 h-3.5"></i> Desenvolvedor em Formação
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-tech">
+                        Olá, eu sou <br/>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-weg-cyan to-cyber-green text-glow">
+                            Herick Felipe
+                        </span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Jovem aprendiz de 16 anos focado em <strong class="text-white">Programação</strong> e <strong class="text-weg-cyan">Cibersistemas para Automação</strong> no CentroWEG. Apaixonado por tecnologia e universo gamer.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#formacao" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-weg-blue to-weg-light font-bold text-white shadow-lg glow-cyan-hover transition-all duration-300 flex items-center gap-2 transform hover:-translate-y-0.5">
+                            <i data-lucide="cpu" class="w-5 h-5"></i> Conheça minha atuação
+                        </a>
+                        <a href="#sobre" class="px-6 py-3.5 rounded-xl bg-cyber-card border border-cyber-border font-semibold text-gray-300 hover:text-white hover:border-weg-cyan/50 transition-all duration-300 flex items-center gap-2">
+                            <i data-lucide="user-check" class="w-5 h-5"></i> Mais sobre mim
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card Gamer / Tech com estatísticas -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md bg-cyber-card p-6 sm:p-8 rounded-2xl border border-cyber-border glow-cyan">
+                        <div class="absolute -top-3 -right-3 bg-cyber-green text-black font-mono font-bold text-xs px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                            <i data-lucide="zap" class="w-3.5 h-3.5"></i> ONLINE
+                        </div>
+
+                        <div class="flex items-center gap-4 mb-6 pb-6 border-b border-cyber-border">
+                            <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-weg-blue/40 to-cyber-purple/40 border border-weg-cyan/30 flex items-center justify-center text-weg-cyan">
+                                <i data-lucide="code-2" class="w-8 h-8"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-tech text-lg font-bold text-white">HERICK BRANDÃO</h3>
+                                <p class="text-xs font-mono text-gray-400">Blumenau &bull; SC</p>
+                                <p class="text-xs text-weg-cyan font-mono mt-0.5">16 Anos &bull; CentroWEG</p>
+                            </div>
+                        </div>
+
+                        <!-- Stats Quick View -->
+                        <div class="space-y-4 font-mono text-sm">
+                            <div>
+                                <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                    <span>Foco: Automação</span>
+                                    <span class="text-cyber-green">90%</span>
+                                </div>
+                                <div class="w-full bg-cyber-dark h-2 rounded-full overflow-hidden">
+                                    <div class="bg-cyber-green h-full w-[90%] rounded-full"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                    <span>Cibersistemas</span>
+                                    <span class="text-weg-cyan">85%</span>
+                                </div>
+                                <div class="w-full bg-cyber-dark h-2 rounded-full overflow-hidden">
+                                    <div class="bg-weg-cyan h-full w-[85%] rounded-full"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs text-gray-400 mb-1">
+                                    <span>Gaming (Fortnite / Minecraft)</span>
+                                    <span class="text-cyber-purple">100%</span>
+                                </div>
+                                <div class="w-full bg-cyber-dark h-2 rounded-full overflow-hidden">
+                                    <div class="bg-cyber-purple h-full w-[100%] rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre Mim -->
+    <section id="sobre" class="py-20 bg-cyber-dark/50 border-t border-cyber-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold font-tech text-white flex items-center justify-center gap-3">
+                    <i data-lucide="user" class="text-weg-cyan"></i> Sobre Mim
+                </h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-weg-blue to-weg-cyan mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card Origem -->
+                <div class="bg-cyber-card p-6 rounded-2xl border border-cyber-border hover:border-weg-cyan/40 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-weg-blue/20 border border-weg-blue/40 flex items-center justify-center text-weg-cyan mb-5 group-hover:scale-110 transition-transform">
+                        <i data-lucide="map-pin" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 font-tech">Origem</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Nascido na linda cidade de <strong class="text-white">Blumenau - SC</strong>, desenvolvi desde cedo a paixão pela tecnologia, curiosidade por inovação e determinação para aprender.
+                    </p>
+                </div>
+
+                <!-- Card Idade & Momento -->
+                <div class="bg-cyber-card p-6 rounded-2xl border border-cyber-border hover:border-cyber-green/40 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-cyber-green/20 border border-cyber-green/40 flex items-center justify-center text-cyber-green mb-5 group-hover:scale-110 transition-transform">
+                        <i data-lucide="calendar" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 font-tech">16 Anos</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Em uma fase crucial de desenvolvimento profissional, buscando constantemente expandir conhecimentos práticos e teóricos para me destacar na tecnologia.
+                    </p>
+                </div>
+
+                <!-- Card Paixão Tech -->
+                <div class="bg-cyber-card p-6 rounded-2xl border border-cyber-border hover:border-cyber-purple/40 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-cyber-purple/20 border border-cyber-purple/40 flex items-center justify-center text-cyber-purple mb-5 group-hover:scale-110 transition-transform">
+                        <i data-lucide="binary" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 font-tech">Programação</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Entusiasta do desenvolvimento de código e de soluções para automação, conectando inteligência de software a processos industriais modernos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Formação & Atuação (CentroWEG / Cibersistemas) -->
+    <section id="formacao" class="py-20 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-weg-cyan font-mono text-sm uppercase tracking-wider">Carreira & Aprendizado</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-tech text-white mt-1 flex items-center justify-center gap-3">
+                    <i data-lucide="cpu" class="text-weg-cyan"></i> CentroWEG & Cibersistemas
+                </h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-weg-blue to-weg-cyan mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="bg-gradient-to-r from-cyber-card via-cyber-card to-weg-blue/10 rounded-3xl p-8 sm:p-10 border border-cyber-border relative overflow-hidden">
+                <!-- Marca d'água de background -->
+                <div class="absolute -right-10 -bottom-10 text-weg-blue/10 font-tech font-black text-9xl select-none pointer-events-none">
+                    WEG
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="flex items-center gap-3">
+                            <span class="px-3 py-1 bg-weg-blue text-white font-mono text-xs font-bold rounded">WEG</span>
+                            <span class="text-gray-400 font-mono text-sm">Atuação Atual</span>
+                        </div>
+
+                        <h3 class="text-2xl sm:text-3xl font-bold font-tech text-white">
+                            Desenvolvimento no <span class="text-weg-cyan">CentroWEG</span>
+                        </h3>
+
+                        <p class="text-gray-300 leading-relaxed">
+                            Atualmente, faço parte do ambiente do **CentroWEG**, uma das instituições de formação profissional técnica mais renomadas da indústria. Aqui, alio teoria e prática aplicadas ao mundo real da tecnologia industrial.
+                        </p>
+
+                        <div class="space-y-3 pt-2">
+                            <div class="flex items-start gap-3">
+                                <div class="p-1 rounded bg-weg-cyan/20 text-weg-cyan mt-1">
+                                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold text-sm">Cibersistemas para Automação</h4>
+                                    <p class="text-gray-400 text-xs">Foco na convergência de software, redes, segurança da informação e automação industrial.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="p-1 rounded bg-weg-cyan/20 text-weg-cyan mt-1">
+                                    <i data-lucide="code" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold text-sm">Lógica de Programação</h4>
+                                    <p class="text-gray-400 text-xs">Desenvolvimento de algoritmos e programas voltados ao controle e otimização de processos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 grid grid-cols-1 gap-4">
+                        <div class="bg-cyber-dark/80 p-5 rounded-xl border border-cyber-border">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-mono text-gray-400">ÁREA DE ESTUDO</span>
+                                <i data-lucide="network" class="w-4 h-4 text-weg-cyan"></i>
+                            </div>
+                            <h4 class="font-tech text-lg font-bold text-white">Sistemas Autônomos</h4>
+                            <p class="text-xs text-gray-400 mt-1">Integração entre sistemas digitais e equipamentos industriais.</p>
+                        </div>
+
+                        <div class="bg-cyber-dark/80 p-5 rounded-xl border border-cyber-border">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-mono text-gray-400">AMBIENTE</span>
+                                <i data-lucide="factory" class="w-4 h-4 text-cyber-green"></i>
+                            </div>
+                            <h4 class="font-tech text-lg font-bold text-white">Excelência WEG</h4>
+                            <p class="text-xs text-gray-400 mt-1">Vivência em padrão corporativo e industrial de altíssimo nível.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Interesses (Games) -->
+    <section id="interesses" class="py-20 bg-cyber-dark/50 border-t border-cyber-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-cyber-purple font-mono text-sm uppercase tracking-wider">Hobbies & Paixões</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-tech text-white mt-1 flex items-center justify-center gap-3">
+                    <i data-lucide="gamepad-2" class="text-cyber-purple"></i> Universos Gamer
+                </h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-cyber-purple to-weg-cyan mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card Fortnite -->
+                <div class="bg-cyber-card rounded-2xl border border-cyber-border p-6 hover:border-cyber-purple/50 transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-cyber-purple/10 rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform"></div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyber-purple/20 border border-cyber-purple/40 flex items-center justify-center text-cyber-purple">
+                            <i data-lucide="crosshair" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-tech text-xl font-bold text-white">Fortnite</h3>
+                            <span class="text-xs font-mono text-cyber-purple">Battle Royale & Estratégia</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Agilidade, trabalho em equipe, reflexos rápidos e estratégia em tempo real. Jogos competitivos me ensinam tomadas de decisão sob pressão.
+                    </p>
+                </div>
+
+                <!-- Card Minecraft -->
+                <div class="bg-cyber-card rounded-2xl border border-cyber-border p-6 hover:border-cyber-green/50 transition-all duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-cyber-green/10 rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform"></div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyber-green/20 border border-cyber-green/40 flex items-center justify-center text-cyber-green">
+                            <i data-lucide="box" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-tech text-xl font-bold text-white">Minecraft</h3>
+                            <span class="text-xs font-mono text-cyber-green">Criatividade & Lógica (Redstone)</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Construção de mundos e exploração. O uso de circuitos virtuais (Redstone) funciona como uma excelente introdução intuitiva à lógica de programação.
+                    </p>
+                </div>
+
+                <!-- Card Outros Jogos & Hardware -->
+                <div class="bg-cyber-card rounded-2xl border border-cyber-border p-6 hover:border-weg-cyan/50 transition-all duration-300 relative overflow-hidden group md:col-span-2 lg:col-span-1">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-weg-cyan/10 rounded-bl-full pointer-events-none group-hover:scale-125 transition-transform"></div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-weg-cyan/20 border border-weg-cyan/40 flex items-center justify-center text-weg-cyan">
+                            <i data-lucide="headset" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-tech text-xl font-bold text-white">Jogos Eletrônicos</h3>
+                            <span class="text-xs font-mono text-weg-cyan">Cultura Tech</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Além de entretenimento, os games são minha porta de entrada para entender arquitetura de computadores, gráficos 3D e desenvolvimento de softwares interativos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Objetivos Futuros -->
+    <section id="objetivos" class="py-20 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-cyber-green font-mono text-sm uppercase tracking-wider">Visão de Longo Prazo</span>
+                <h2 class="text-3xl sm:text-4xl font-bold font-tech text-white mt-1 flex items-center justify-center gap-3">
+                    <i data-lucide="rocket" class="text-cyber-green"></i> Futuro Profissional
+                </h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-cyber-green to-weg-cyan mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Meta 1 -->
+                <div class="bg-cyber-card p-8 rounded-2xl border border-cyber-border relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-cyber-green bg-cyber-green/10 border border-cyber-green/30 px-3 py-1 rounded-full">META DE CARREIRA</span>
+                            <i data-lucide="trending-up" class="w-5 h-5 text-cyber-green"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-tech text-white mb-3">Solidez Profissional</h3>
+                        <p class="text-gray-300 leading-relaxed text-sm">
+                            Meu objetivo fundamental é construir uma trajetória sólida e de sucesso na indústria de tecnologia e automação. Quero ser um profissional reconhecido pela capacidade de resolver problemas complexos com eficiência e inovação.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-cyber-border flex items-center gap-2 text-xs font-mono text-gray-400">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-cyber-green"></i> Dedicação diária ao aprendizado
+                    </div>
+                </div>
+
+                <!-- Meta 2 -->
+                <div class="bg-cyber-card p-8 rounded-2xl border border-cyber-border relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-mono text-weg-cyan bg-weg-cyan/10 border border-weg-cyan/30 px-3 py-1 rounded-full">EVOLUÇÃO TÉCNICA</span>
+                            <i data-lucide="award" class="w-5 h-5 text-weg-cyan"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-tech text-white mb-3">Especialização em Cibersistemas</h3>
+                        <p class="text-gray-300 leading-relaxed text-sm">
+                            Aprofundar os estudos em programação avançada, cibersegurança e sistemas automatizados, acompanhando as principais tendências da Indústria 4.0 para gerar valor real onde eu atuar.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-cyber-border flex items-center gap-2 text-xs font-mono text-gray-400">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-weg-cyan"></i> Foco em cibersistemas & automação
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card de Encerramento com CTA -->
+            <div class="mt-12 bg-gradient-to-r from-weg-blue to-cyber-purple p-8 rounded-2xl text-center shadow-xl text-white">
+                <h3 class="font-tech text-2xl font-bold mb-2">Construindo o futuro passo a passo</h3>
+                <p class="text-gray-200 text-sm max-w-xl mx-auto mb-6">
+                    "O sucesso é a soma de pequenos esforços repetidos dia após dia." Em busca de uma jornada brilhante na tecnologia.
+                </p>
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm rounded-lg font-mono text-xs text-weg-cyan border border-white/10">
+                    <i data-lucide="code" class="w-4 h-4"></i> Herick Felipe Brandão &bull; 2026
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="border-t border-cyber-border bg-cyber-dark py-8 text-center text-xs font-mono text-gray-500">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>© 2026 Herick Felipe Brandão. Portfólio Pessoal & Profissional.</p>
+            <p class="mt-1 text-gray-600">CentroWEG &bull; Cibersistemas para Automação &bull; Blumenau/SC</p>
+        </div>
+    </footer>
+
+    <!-- Inicializar Ícones Lucide -->
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
